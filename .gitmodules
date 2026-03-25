@@ -1,0 +1,6 @@
+[submodule "aun_back"]
+	path = aun_back
+	url = https://github.com/Konit611/AUN_Backend.git
+[submodule "aun_front"]
+	path = aun_front
+	url = https://github.com/Konit611/AUN_Front.git
