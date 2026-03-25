@@ -1,0 +1,11 @@
+services:
+  backend:
+    restart: always
+    environment:
+      DEBUG: "false"
+
+  frontend:
+    restart: always
+
+  db:
+    restart: always

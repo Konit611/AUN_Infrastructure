@@ -6,10 +6,12 @@
 
 ```
 aun_infrastructure/
-├── docker-compose.yml   # PostgreSQL + Backend + Frontend
-├── .env.example         # 環境変数テンプレート
-├── aun_back/            # サブモジュール (FastAPI + SQLModel)
-└── aun_front/           # サブモジュール (Next.js)
+├── docker-compose.yml           # 共通設定 (base)
+├── docker-compose.override.yml  # ローカル開発用 (自動適用, gitignore)
+├── docker-compose.prod.yml      # 本番用
+├── .env.example                 # 環境変数テンプレート
+├── aun_back/                    # サブモジュール (FastAPI + SQLModel)
+└── aun_front/                   # サブモジュール (Next.js)
 ```
 
 ## 技術スタック
@@ -45,8 +47,18 @@ cp .env.example .env
 
 ### 3. Docker Composeで起動
 
+#### ローカル開発
+
 ```bash
 docker compose up
+```
+
+`docker-compose.override.yml` が自動で適用されます（DB外部ポート開放、DEBUGモードなど）。
+
+#### 本番デプロイ
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 ```
 
 | サービス | URL |
@@ -54,7 +66,7 @@ docker compose up
 | フロントエンド | http://localhost:3000 |
 | バックエンド | http://localhost:8000 |
 | API ドキュメント | http://localhost:8000/docs |
-| PostgreSQL | localhost:5432 |
+| PostgreSQL | localhost:5432 (ローカルのみ) |
 
 ## サブモジュールの操作
 
