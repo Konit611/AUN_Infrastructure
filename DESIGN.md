@@ -30,7 +30,7 @@
   - xl: 22px — section titles (Shippori Mincho)
   - 2xl: 28px — page headings (Shippori Mincho)
   - 3xl: 42px — persona names (Shippori Mincho)
-  - 4xl: 56px — hero/brand (Shippori Mincho)
+  - 4xl: 72px — hero/brand desktop (Shippori Mincho), 36px mobile
 
 ## Color
 - **Approach:** Restrained. Color is rare and meaningful. The accent is deep indigo, referencing traditional Japanese aizome (indigo dyeing) rather than the gold that every sake brand uses.
@@ -84,7 +84,9 @@ Persona cards use a gradient from the first axis color to the third axis color (
 - **Border radius:**
   - sm: 4px (tags, small elements)
   - md: 8px (inputs, alerts)
-  - lg: 12px (cards, modals)
+  - lg: 12px (standard cards, modals)
+  - asymmetric: rounded-tl-[32px] rounded-br-[32px] (mobile pairing cards), rounded-tl-[48px] rounded-br-[48px] (desktop pairing cards, hero image) — diagonal asymmetric rounding for visual identity
+  - xl: 24px (CTA sections on mobile)
   - full: 9999px (buttons, pills)
 
 ## Motion
@@ -124,3 +126,5 @@ Persona cards use a gradient from the first axis color to the third axis color (
 | 2026-03-28 | Deep indigo (#2B3A67) over gold | Every sake brand uses gold. Indigo references aizome (traditional dyeing) but feels modern. Differentiates AUN. |
 | 2026-03-28 | Cream background (#FAF7F2) | Warm, not clinical. Standard for premium sake brands (Dassai, Hakkaisan). |
 | 2026-03-28 | Axis-based persona color system | 4 axes x 2 colors = 16 unique gradients. Systematic, maintainable, no illustration dependency. |
+| 2026-03-31 | Asymmetric card border-radius | Diagonal rounding (top-left + bottom-right) creates visual identity distinct from standard cards. Matches Figma. |
+| 2026-03-31 | Hero font 72px (desktop) | Larger than initial 56px spec — Figma design uses 72px for stronger visual impact on hero section. |

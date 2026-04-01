@@ -24,7 +24,9 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
 
   frontend:
-    build: ./aun_front
+    build:
+      context: ./aun_front
+      network: host
     ports:
       - "3000:3000"
     depends_on:
