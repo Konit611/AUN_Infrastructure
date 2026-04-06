@@ -24,13 +24,14 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
 
   frontend:
-    build:
-      context: ./aun_front
-      network: host
+    build: ./aun_front
     ports:
       - "3000:3000"
     depends_on:
       - backend
+    environment:
+      INTERNAL_API_URL: http://backend:8000
+      NEXT_PUBLIC_API_URL: http://localhost:8000
 
 volumes:
   pgdata:
