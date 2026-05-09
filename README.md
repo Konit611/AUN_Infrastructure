@@ -20,7 +20,7 @@ aun_infrastructure/
 |----------|------|
 | フロントエンド | Next.js 16 / React 19 / TypeScript |
 | バックエンド | FastAPI / SQLModel / Alembic |
-| データベース | PostgreSQL 17 |
+| データベース | PostgreSQL 18 |
 | コンテナ | Docker Compose |
 
 ## セットアップ
