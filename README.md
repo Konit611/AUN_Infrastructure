@@ -57,16 +57,16 @@ docker compose up
 
 #### 本番デプロイ
 
-```bash
-docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
-```
+- **フロントエンド**: Vercel (Next.js native)
+- **バックエンド**: Render (Docker)
+- **データベース**: Supabase Postgres
+- **画像ストレージ**: Supabase Storage (S3 互換)
 
 | サービス | URL |
 |----------|-----|
-| フロントエンド | http://localhost:3000 |
-| バックエンド | http://localhost:8000 |
-| API ドキュメント | http://localhost:8000/docs |
-| PostgreSQL | localhost:5432 (ローカルのみ) |
+| フロントエンド | https://aun-sake.com |
+| バックエンド | https://api.aun-sake.com |
+| API ドキュメント | https://api.aun-sake.com/docs |
 
 ## サブモジュールの操作
 
@@ -88,6 +88,10 @@ cd ..
 git add aun_back
 git commit -m "Update aun_back submodule ref"
 ```
+
+## 本番デプロイ手順
+
+> Vercel + Render + Supabase 構成への移行中。詳細手順は別途整備予定。
 
 ## データベースマイグレーション
 
