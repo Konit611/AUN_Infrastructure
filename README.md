@@ -95,6 +95,8 @@ git commit -m "Update aun_back submodule ref"
 
 ## データベースマイグレーション
 
+### ローカル開発 DB（Docker）
+
 ```bash
 cd aun_back
 
@@ -107,3 +109,14 @@ uv run alembic upgrade head
 # 1つ前に戻す
 uv run alembic downgrade -1
 ```
+
+### 本番 DB（Supabase）にローカルから直接実行
+
+`config.py` が実行ディレクトリの `.env` を読むため、ルートの `.env` を `aun_back/` に一時コピーして実行する。
+
+```bash
+# ルートの .env を本番用に設定してから実行
+cp .env aun_back/.env && cd aun_back && uv run alembic upgrade head; rm -f .env; cd ..
+```
+
+> **Note**: EC2 でコンテナを再起動すると `entrypoint.sh` が自動で `alembic upgrade head` を実行するため、通常は EC2 デプロイ時に自動適用される。ローカルから直接実行するのは緊急時や検証時のみ。
